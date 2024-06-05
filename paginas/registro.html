@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Veterinaria - Registro</title>
-    <link rel="stylesheet" href="/estiloscss/estilodelformulario.css">
+    <!-- Asegúrate de que las rutas a tus estilos CSS sean relativas -->
+    <link rel="stylesheet" href="estiloscss/estilodelformulario.css"> <!-- Cambiado a ruta relativa -->
     <style>
         .mensaje-exito {
             display: none;
@@ -108,17 +109,13 @@
             </div>
         </footer>
     </div>
+    <!-- Aquí empieza el código JS. No lo he movido -->
     <script>
-        // aqui empieza el codigo js no lo quise mover 
         document.getElementById('registroForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            
-            
             document.querySelectorAll('.error').forEach(error => error.textContent = '');
-
             let isValid = true;
 
-         
             const nombre = document.getElementById('nombre').value.trim();
             if (nombre === '') {
                 isValid = false;
