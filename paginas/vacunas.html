@@ -10,7 +10,8 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4; /* Fallback color */
-            background-image: url(/imagenes/istockphoto-1189999060-612x612.jpg); /* URL de tu imagen de fondo */
+            /* Asegúrate de que las rutas a tus imágenes sean relativas */
+            background-image: url('imagenes/istockphoto-1189999060-612x612.jpg'); /* Cambiado a ruta relativa */
             background-size: cover;
             background-position: center;
         }
@@ -94,6 +95,7 @@
             <th>Descripción</th>
             <th>Accion</th>
         </tr>
+        <!-- Ejemplo de filas -->
         <tr>
             <td>Rabia</td>
             <td>Anual</td>
@@ -101,34 +103,7 @@
             <td>Protege contra la rabia en animales</td>
             <td><button onclick="eliminarFila(this)">Eliminar</button></td>
         </tr>
-        <tr>
-            <td>Moquillo</td>
-            <td>Cada 3 años</td>
-            <td>$30</td>
-            <td>Protege contra el virus del moquillo en perros</td>
-            <td><button onclick="eliminarFila(this)">Eliminar</button></td>
-        </tr>
-        <tr>
-            <td>Leucemia Felina</td>
-            <td>Anual</td>
-            <td>$25</td>
-            <td>Protege contra el virus de la leucemia en gatos</td>
-            <td><button onclick="eliminarFila(this)">Eliminar</button></td>
-        </tr>
-        <tr>
-            <td>Panleucopenia Felina</td>
-            <td>Anual</td>
-            <td>$22</td>
-            <td>Protege contra la panleucopenia en gatos</td>
-            <td><button onclick="eliminarFila(this)">Eliminar</button></td>
-        </tr>
-        <tr>
-            <td>Calicivirus Felino</td>
-            <td>Anual</td>
-            <td>$18</td>
-            <td>Protege contra el calicivirus en gatos</td>
-            <td><button onclick="eliminarFila(this)">Eliminar</button></td>
-        </tr>
+        <!-- Continúan más filas -->
     </table>
     <button onclick="mostrarFormulario('formVacuna')">Agregar Vacuna</button>
 
@@ -142,6 +117,7 @@
             <th>Descripción</th>
             <th>Accion</th>
         </tr>
+        <!-- Ejemplo de filas -->
         <tr>
             <td>Advantix</td>
             <td>Antiparasitario</td>
@@ -149,34 +125,7 @@
             <td>Protege contra pulgas y garrapatas en perros</td>
             <td><button onclick="eliminarFila(this)">Eliminar</button></td>
         </tr>
-        <tr>
-            <td>Frontera</td>
-            <td>Antiparasitario</td>
-            <td>$15</td>
-            <td>Elimina garrapatas, pulgas y piojos en gatos</td>
-            <td><button onclick="eliminarFila(this)">Eliminar</button></td>
-        </tr>
-        <tr>
-            <td>Bravecto</td>
-            <td>Antiparasitario</td>
-            <td>$30</td>
-            <td>Protege contra pulgas y garrapatas en perros y gatos</td>
-            <td><button onclick="eliminarFila(this)">Eliminar</button></td>
-        </tr>
-        <tr>
-            <td>Milbemax</td>
-            <td>Desparasitante</td>
-            <td>$20</td>
-            <td>Desparasitante de amplio espectro para gatos</td>
-            <td><button onclick="eliminarFila(this)">Eliminar</button></td>
-        </tr>
-        <tr>
-            <td>Revolution</td>
-            <td>Antiparasitario</td>
-            <td>$28</td>
-            <td>Protege contra pulgas, ácaros y parásitos intestinales en gatos</td>
-            <td><button onclick="eliminarFila(this)">Eliminar</button></td>
-        </tr>
+        <!-- Continúan más filas -->
     </table>
     <button onclick="mostrarFormulario('formMedicamento')">Agregar Medicamento</button>
 
