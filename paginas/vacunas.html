@@ -10,8 +10,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4; /* Fallback color */
-            /* Asegúrate de que las rutas a tus imágenes sean relativas */
-            background-image: url('imagenes/istockphoto-1189999060-612x612.jpg'); /* Cambiado a ruta relativa */
+            background-image: url('imagenes/istockphoto-1189999060-612x612.jpg'); /* Ruta relativa */
             background-size: cover;
             background-position: center;
         }
@@ -27,7 +26,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        input[type="text"] {
+        input[type="text"], button, select {
             width: 100%;
             padding: 10px;
             margin-top: 10px;
@@ -52,21 +51,14 @@
             background-color: #f9f9f9;
         }
         button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
             background-color: #4CAF50;
             color: white;
+            cursor: pointer;
             transition: background-color 0.3s;
         }
         button:hover {
             background-color: #45a049;
         }
-        /* Estilo para los formularios de agregar */
         .formAgregar {
             display: none;
             background: white;
@@ -81,10 +73,8 @@
     </style>
 </head>
 <body>
-
 <div class="container">
     <h1>Vacunas y Medicamentos para Animales</h1>
-
     <h2>Vacunas para Animales</h2>
     <input type="text" id="vacunaInput" onkeyup="buscarVacuna()" placeholder="Buscar vacuna...">
     <table id="vacunaTable">
@@ -95,7 +85,6 @@
             <th>Descripción</th>
             <th>Accion</th>
         </tr>
-        <!-- Ejemplo de filas -->
         <tr>
             <td>Rabia</td>
             <td>Anual</td>
@@ -103,10 +92,8 @@
             <td>Protege contra la rabia en animales</td>
             <td><button onclick="eliminarFila(this)">Eliminar</button></td>
         </tr>
-        <!-- Continúan más filas -->
     </table>
     <button onclick="mostrarFormulario('formVacuna')">Agregar Vacuna</button>
-
     <h2>Mejores Medicamentos para Animales</h2>
     <input type="text" id="medicamentoInput" onkeyup="buscarMedicamento()" placeholder="Buscar medicamento...">
     <table id="medicamentoTable">
@@ -117,7 +104,6 @@
             <th>Descripción</th>
             <th>Accion</th>
         </tr>
-        <!-- Ejemplo de filas -->
         <tr>
             <td>Advantix</td>
             <td>Antiparasitario</td>
@@ -125,14 +111,11 @@
             <td>Protege contra pulgas y garrapatas en perros</td>
             <td><button onclick="eliminarFila(this)">Eliminar</button></td>
         </tr>
-        <!-- Continúan más filas -->
     </table>
     <button onclick="mostrarFormulario('formMedicamento')">Agregar Medicamento</button>
-
     <button onclick="volverAlIndex()">Volver al Índice</button>
 </div>
 
-<!-- Formularios para agregar vacunas y medicamentos -->
 <div id="formVacuna" class="formAgregar">
     <h2>Agregar nueva vacuna</h2>
     <label for="nombreVacuna">Vacuna:</label>
@@ -161,94 +144,6 @@
     <button onclick="cerrarFormulario('formMedicamento')">Cancelar</button>
 </div>
 
-<script>
-    function buscarVacuna() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("vacunaInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("vacunaTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-
-    function buscarMedicamento() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("medicamentoInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("medicamentoTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-
-    function volverAlIndex() {
-        window.location.href = "index.html";
-    }
-
-    function eliminarFila(btn) {
-        var row = btn.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-    }
-
-    function mostrarFormulario(formId) {
-        document.getElementById(formId).style.display = 'block';
-    }
-
-    function agregarNuevaVacuna() {
-        var table = document.getElementById("vacunaTable");
-        var row = table.insertRow(-1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        cell1.innerHTML = document.getElementById("nombreVacuna").value;
-        cell2.innerHTML = document.getElementById("dosisVacuna").value;
-        cell3.innerHTML = document.getElementById("valorVacuna").value;
-        cell4.innerHTML = document.getElementById("descripcionVacuna").value;
-        cell5.innerHTML = '<button onclick="eliminarFila(this)">Eliminar</button>';
-        cerrarFormulario('formVacuna');
-    }
-
-    function agregarNuevoMedicamento() {
-        var table = document.getElementById("medicamentoTable");
-        var row = table.insertRow(-1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        cell1.innerHTML = document.getElementById("nombreMedicamento").value;
-        cell2.innerHTML = document.getElementById("usoMedicamento").value;
-        cell3.innerHTML = document.getElementById("valorMedicamento").value;
-        cell4.innerHTML = document.getElementById("descripcionMedicamento").value;
-        cell5.innerHTML = '<button onclick="eliminarFila(this)">Eliminar</button>';
-        cerrarFormulario('formMedicamento');
-    }
-
-    function cerrarFormulario(formId) {
-        document.getElementById(formId).style.display = 'none';
-    }
-</script>
-
+<script src="scripts/main.js"></script> <!-- Asumiendo que tienes un archivo JS separado -->
 </body>
 </html>

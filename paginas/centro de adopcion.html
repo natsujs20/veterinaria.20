@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Perros y Gatos en Adopción</title>
+  <!-- Ruta relativa al archivo CSS -->
   <link rel="stylesheet" type="text/css" href="estiloscss/centroadopcion.css">
   <style>
     body {
@@ -107,18 +108,6 @@
         border: 2px solid #4CAF50;
     }
 
-    #searchBar {
-        padding: 8px;
-        width: 300px;
-        border-radius: 8px; 
-        border: 2px solid #4CAF50;
-        transition-duration: 0.4s; 
-    }
-
-    #searchBar:focus {
-        border: 2px solid #45a049;
-    }
-
     #pokemon-data {
         margin: 20px auto;
         text-align: center;
@@ -134,13 +123,11 @@
        <h1>Perros y Gatos en Adopción</h1>
    </header>
 
-   <!-- Barra de búsqueda y botón de buscar -->
    <div style="text-align: center; margin-bottom: 20px;">
        <input type="text" id="searchBar" placeholder="Buscar perros y gatos..." style="padding: 8px; width: 300px;">
        <button id="searchButton" onclick="searchAnimals()">Buscar</button>
    </div>
 
-   <!-- Botones para exportar datos -->
    <div style="text-align: center; margin-bottom: 20px;">
        <button onclick="exportToCSV()" class="btn-green">Exportar a CSV</button>
        <button onclick="exportToExcel()" class="btn-green">Exportar a Excel</button>
@@ -148,8 +135,7 @@
    </div>
 
    <div class="dog-container">
-       <!-- Cambio de rutas de imágenes a relativas -->
-       <!-- Los enlaces y descripciones de cada perro y gato se mantienen igual, solo cambian las rutas -->
+       <!-- Imágenes con rutas relativas -->
        <div class="dog-card">
            <img src="perros/7H3JC4BVUVDQNF3P45CHYYSU2A.jpg" alt="Rocky">
            <h3>Rocky</h3>
@@ -158,21 +144,18 @@
            <p>Estado: En adopción</p>
            <p>Rocky es un Perro cariñoso y leal, perfecto para una familia activa.</p>
        </div>
-       <!-- Más tarjetas de perros y gatos siguen aquí -->
+       <!-- Repetir para cada tarjeta de perro y gato -->
    </div>
 
-   <!-- Botón para volver al índice -->
    <div style="text-align: center; margin-top: 20px;">
        <button class="btn-green" onclick="volverAlIndex()">Volver al Índice</button>
    </div>
 
-   <!-- Sección para buscar Pokémon -->
    <div style="text-align: center; margin-top: 20px;">
        <input type="text" id="pokemonSearchBar" placeholder="Buscar Pokémon por nombre o ID" style="padding: 8px; width: 300px;">
        <button class="btn-green" onclick="searchPokemon()">Buscar Pokémon</button>
    </div>
 
-   <!-- Sección para mostrar datos del Pokémon -->
    <div id="pokemon-data">
        <h3>Información del Pokémon</h3>
        <div id="pokemon-info"></div>

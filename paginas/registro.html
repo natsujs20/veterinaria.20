@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Veterinaria - Registro</title>
-    <!-- Asegúrate de que las rutas a tus estilos CSS sean relativas -->
-    <link rel="stylesheet" href="estiloscss/estilodelformulario.css"> <!-- Cambiado a ruta relativa -->
+    <!-- Ruta relativa para CSS -->
+    <link rel="stylesheet" href="estiloscss/estilodelformulario.css">
     <style>
         .mensaje-exito {
             display: none;
@@ -71,13 +71,11 @@
                             <option value="labrador">Labrador Retriever</option>
                             <option value="bulldogIngles">Bulldog Inglés</option>
                             <option value="pastorAleman">Pastor Alemán</option>
-                            <!-- Agrega más razas según sea necesario -->
                         </optgroup>
                         <optgroup label="Razas de Gatos">
                             <option value="siames">Siames</option>
                             <option value="persa">Persa</option>
                             <option value="angora">Angora</option>
-                            <!-- Agrega más razas según sea necesario -->
                         </optgroup>
                     </select>
                     <div class="error" id="razaMascotaError"></div>
@@ -109,86 +107,5 @@
             </div>
         </footer>
     </div>
-    <!-- Aquí empieza el código JS. No lo he movido -->
-    <script>
-        document.getElementById('registroForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            document.querySelectorAll('.error').forEach(error => error.textContent = '');
-            let isValid = true;
-
-            const nombre = document.getElementById('nombre').value.trim();
-            if (nombre === '') {
-                isValid = false;
-                document.getElementById('nombreError').textContent = 'El nombre es obligatorio.';
-            }
-
-            const email = document.getElementById('email').value.trim();
-            if (email === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                isValid = false;
-                document.getElementById('emailError').textContent = 'Email inválido.';
-            }
-
-            const password = document.getElementById('password').value.trim();
-            if (password.length < 6) {
-                isValid = false;
-                document.getElementById('passwordError').textContent = 'La contraseña debe tener al menos 6 caracteres.';
-            }
-
-            const telefono = document.getElementById('telefono').value.trim();
-            if (telefono === '') {
-                isValid = false;
-                document.getElementById('telefonoError').textContent = 'El teléfono es obligatorio.';
-            }
-
-            const direccion = document.getElementById('direccion').value.trim();
-            if (direccion === '') {
-                isValid = false;
-                document.getElementById('direccionError').textContent = 'La dirección es obligatoria.';
-            }
-
-            const nombreMascota = document.getElementById('nombreMascota').value.trim();
-            if (nombreMascota === '') {
-                isValid = false;
-                document.getElementById('nombreMascotaError').textContent = 'El nombre de la mascota es obligatorio.';
-            }
-
-            const tipoMascota = document.getElementById('tipoMascota').value;
-            if (tipoMascota === '') {
-                isValid = false;
-                document.getElementById('tipoMascotaError').textContent = 'Debe seleccionar un tipo de mascota.';
-            }
-
-            const razaMascota = document.getElementById('razaMascota').value;
-            if (razaMascota === '') {
-                isValid = false;
-                document.getElementById('razaMascotaError').textContent = 'Debe seleccionar una raza de mascota.';
-            }
-
-            const edadMascota = document.getElementById('edadMascota').value;
-            if (edadMascota === '' || isNaN(edadMascota) || edadMascota < 0) {
-                isValid = false;
-                document.getElementById('edadMascotaError').textContent = 'La edad de la mascota es inválida.';
-            }
-
-            const fechaCita = document.getElementById('fechaCita').value;
-            if (fechaCita === '') {
-                isValid = false;
-                document.getElementById('fechaCitaError').textContent = 'Debe seleccionar una fecha para la cita.';
-            }
-
-            const horaCita = document.getElementById('horaCita').value;
-            if (horaCita === '') {
-                isValid = false;
-                document.getElementById('horaCitaError').textContent = 'Debe seleccionar una hora para la cita.';
-            }
-
-            if (isValid) {
-                // Aquí podrías agregar lógica para enviar el formulario por AJAX
-                document.getElementById('mensajeExito').style.display = 'block';
-                // Limpiar formulario
-                document.getElementById('registroForm').reset();
-            }
-        });
-    </script>
 </body>
 </html>
