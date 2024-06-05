@@ -6,7 +6,8 @@
     <title>Clínica Veterinaria - Galería</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    <link rel="stylesheet" href="/estiloscss/galeria.css">
+    <!-- Asegúrate de que las rutas a tus estilos CSS sean relativas -->
+    <link rel="stylesheet" href="estiloscss/galeria.css">
 </head>
 <body>
     <header>
@@ -16,20 +17,21 @@
         <section id="galeria">
             <h2>Nuestra Galería</h2>
             <div class="carrusel">
-                <div><img src="/perros/7H3JC4BVUVDQNF3P45CHYYSU2A.jpg" alt="Imagen 1"></div>
-                <div><img src="/perros/cute-small-dog-mix-breed-260nw-1503643838.webp" alt="Imagen 2"></div>
-                <div><img src="/perros/dd731c2d1eb9d89c36f5662dd94dd429.jpg" alt="Imagen 3"></div>
-                <div><img src="/perros/gato atrigado.jpg" alt="Imagen 4"></div>
-                <div><img src="/perros/gato blanco.jpg" alt="Imagen 5"></div>
-                <div><img src="/perros/gato gordo.jpg" alt="Imagen 6"></div>
-                <div><img src="/perros/gato malo.jpg" alt="Imagen 7"></div>
-                <div><img src="/perros/gato peludo.jpg" alt="Imagen 8"></div>
-                <div><img src="/perros/gato plomo.jpg" alt="Imagen 9"></div>
-                <div><img src="/perros/gato_siames_480x480.webp" alt="Imagen 10"></div>
-                <div><img src="/perros/papillon.webp" alt="Imagen 11"></div>
-                <div><img src="/perros/pastor.jpg" alt="Imagen 12"></div>
-                <div><img src="/perros/perro1realweb_large.avif" alt="Imagen 13"></div>
-                <div><img src="/perros/perro_akita_negro.jpg" alt="Imagen 14"></div>
+                <!-- Cambio de rutas de imágenes a relativas -->
+                <div><img src="perros/7H3JC4BVUVDQNF3P45CHYYSU2A.jpg" alt="Imagen 1"></div>
+                <div><img src="perros/cute-small-dog-mix-breed-260nw-1503643838.webp" alt="Imagen 2"></div>
+                <div><img src="perros/dd731c2d1eb9d89c36f5662dd94dd429.jpg" alt="Imagen 3"></div>
+                <div><img src="perros/gato atrigado.jpg" alt="Imagen 4"></div>
+                <div><img src="perros/gato blanco.jpg" alt="Imagen 5"></div>
+                <div><img src="perros/gato gordo.jpg" alt="Imagen 6"></div>
+                <div><img src="perros/gato malo.jpg" alt="Imagen 7"></div>
+                <div><img src="perros/gato peludo.jpg" alt="Imagen 8"></div>
+                <div><img src="perros/gato plomo.jpg" alt="Imagen 9"></div>
+                <div><img src="perros/gato_siames_480x480.webp" alt="Imagen 10"></div>
+                <div><img src="perros/papillon.webp" alt="Imagen 11"></div>
+                <div><img src="perros/pastor.jpg" alt="Imagen 12"></div>
+                <div><img src="perros/perro1realweb_large.avif" alt="Imagen 13"></div>
+                <div><img src="perros/perro_akita_negro.jpg" alt="Imagen 14"></div>
             </div>
             <div style="text-align: center; margin-top: 20px;">
                 <button class="btn-green" onclick="volverAlIndex()">Volver al Índice</button>
@@ -43,7 +45,8 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="/formulario/galeria.js"></script>
+    <!-- Asegúrate de que la ruta al archivo JavaScript sea relativa -->
+    <script src="formulario/galeria.js"></script>
     <script>
         function volverAlIndex() {
             window.location.href = "index.html";
