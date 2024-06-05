@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria - Registro</title>
+    <link rel="stylesheet" href="/estiloscss/estilodelformulario.css">
+    <style>
+        .mensaje-exito {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Formulario de Registro</h2>
+        </header>
+        <main>
+            <section id="registro">
+                <form id="registroForm" action="registro.php" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <div class="error" id="nombreError"></div>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error" id="emailError"></div>
+
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                    <div class="error" id="passwordError"></div>
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" required>
+                    <div class="error" id="telefonoError"></div>
+
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                    <div class="error" id="direccionError"></div>
+
+                    <label for="nombreMascota">Nombre de la Mascota:</label>
+                    <input type="text" id="nombreMascota" name="nombreMascota" required>
+                    <div class="error" id="nombreMascotaError"></div>
+
+                    <label for="tipoMascota">Tipo de Mascota:</label>
+                    <select id="tipoMascota" name="tipoMascota" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="perro">Perro</option>
+                        <option value="gato">Gato</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <div class="error" id="tipoMascotaError"></div>
+
+                    <label for="razaMascota">Raza de la Mascota:</label>
+                    <select id="razaMascota" name="razaMascota" required>
+                        <option value="">Seleccionar...</option>
+                        <optgroup label="Razas de Perros">
+                            <option value="labrador">Labrador Retriever</option>
+                            <option value="bulldogIngles">Bulldog Inglés</option>
+                            <option value="pastorAleman">Pastor Alemán</option>
+                            <!-- Agrega más razas según sea necesario -->
+                        </optgroup>
+                        <optgroup label="Razas de Gatos">
+                            <option value="siames">Siames</option>
+                            <option value="persa">Persa</option>
+                            <option value="angora">Angora</option>
+                            <!-- Agrega más razas según sea necesario -->
+                        </optgroup>
+                    </select>
+                    <div class="error" id="razaMascotaError"></div>
+
+                    <label for="edadMascota">Edad de la Mascota:</label>
+                    <input type="number" id="edadMascota" name="edadMascota" required min="0">
+                    <div class="error" id="edadMascotaError"></div>
+
+                    <label for="fechaCita">Fecha de la Cita:</label>
+                    <input type="date" id="fechaCita" name="fechaCita" required>
+                    <div class="error" id="fechaCitaError"></div>
+
+                    <label for="horaCita">Hora de la Cita:</label>
+                    <input type="time" id="horaCita" name="horaCita" required>
+                    <div class="error" id="horaCitaError"></div>
+
+                    <input type="submit" value="Registrarse">
+                </form>
+                <div class="mensaje-exito" id="mensajeExito">
+                    ¡Ya estás registrado en nuestra página! Muchas gracias.
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-content">
+                <p>Teléfono: +56 9 1234 5678</p>
+                <p>Ubicación: Pueblo Paleta, Santiago, Chile</p>
+                <p>Clínica Veterinaria y centro de adopción "Tus sueños junto a tus hijos de cuatro patas". Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // aqui empieza el codigo js no lo quise mover 
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            
+            document.querySelectorAll('.error').forEach(error => error.textContent = '');
+
+            let isValid = true;
+
+         
+            const nombre = document.getElementById('nombre').value.trim();
+            if (nombre === '') {
+                isValid = false;
+                document.getElementById('nombreError').textContent = 'El nombre es obligatorio.';
+            }
+
+            const email = document.getElementById('email').value.trim();
+            if (email === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                isValid = false;
+                document.getElementById('emailError').textContent = 'Email inválido.';
+            }
+
+            const password = document.getElementById('password').value.trim();
+            if (password.length < 6) {
+                isValid = false;
+                document.getElementById('passwordError').textContent = 'La contraseña debe tener al menos 6 caracteres.';
+            }
+
+            const telefono = document.getElementById('telefono').value.trim();
+            if (telefono === '') {
+                isValid = false;
+                document.getElementById('telefonoError').textContent = 'El teléfono es obligatorio.';
+            }
+
+            const direccion = document.getElementById('direccion').value.trim();
+            if (direccion === '') {
+                isValid = false;
+                document.getElementById('direccionError').textContent = 'La dirección es obligatoria.';
+            }
+
+            const nombreMascota = document.getElementById('nombreMascota').value.trim();
+            if (nombreMascota === '') {
+                isValid = false;
+                document.getElementById('nombreMascotaError').textContent = 'El nombre de la mascota es obligatorio.';
+            }
+
+            const tipoMascota = document.getElementById('tipoMascota').value;
+            if (tipoMascota === '') {
+                isValid = false;
+                document.getElementById('tipoMascotaError').textContent = 'Debe seleccionar un tipo de mascota.';
+            }
+
+            const razaMascota = document.getElementById('razaMascota').value;
+            if (razaMascota === '') {
+                isValid = false;
+                document.getElementById('razaMascotaError').textContent = 'Debe seleccionar una raza de mascota.';
+            }
+
+            const edadMascota = document.getElementById('edadMascota').value;
+            if (edadMascota === '' || isNaN(edadMascota) || edadMascota < 0) {
+                isValid = false;
+                document.getElementById('edadMascotaError').textContent = 'La edad de la mascota es inválida.';
+            }
+
+            const fechaCita = document.getElementById('fechaCita').value;
+            if (fechaCita === '') {
+                isValid = false;
+                document.getElementById('fechaCitaError').textContent = 'Debe seleccionar una fecha para la cita.';
+            }
+
+            const horaCita = document.getElementById('horaCita').value;
+            if (horaCita === '') {
+                isValid = false;
+                document.getElementById('horaCitaError').textContent = 'Debe seleccionar una hora para la cita.';
+            }
+
+            if (isValid) {
+                // Aquí podrías agregar lógica para enviar el formulario por AJAX
+                document.getElementById('mensajeExito').style.display = 'block';
+                // Limpiar formulario
+                document.getElementById('registroForm').reset();
+            }
+        });
+    </script>
+</body>
+</html>

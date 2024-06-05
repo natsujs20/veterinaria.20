@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Perros y Gatos en Adopción</title>
+  <link rel="stylesheet" type="text/css" href="/estiloscss/centroadopcion.css">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('/imagenes/istockphoto-1189999060-612x612.jpg'); 
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+    }
+
+    header {
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    #searchBar {
+        width: 50%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px; 
+        margin-bottom: 20px;
+    }
+
+    #searchButton {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px; 
+        cursor: pointer;
+        font-size: 16px;
+        transition-duration: 0.4s; 
+    }
+
+    #searchButton:hover {
+        background-color: #3e8e41;
+    }
+
+    .dog-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        gap: 20px; 
+        padding: 20px; 
+    }
+
+    .dog-card {
+        width: 200px; 
+        border: 1px solid #ddd; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        padding: 10px; 
+        text-align: center; 
+        background-color: white; 
+        transition: transform 0.2s; 
+    }
+
+    .dog-card img {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .dog-card:hover {
+        transform: scale(1.05); 
+    }
+
+    .dog-card h3 {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .dog-card p {
+        font-size: 12px;
+        color: #555; 
+    }
+
+    .btn-green {
+        background-color: #4CAF50; 
+        border: none;
+        color: white;
+        padding: 10px 20px; 
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px; 
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px; 
+        transition-duration: 0.4s; 
+    }
+
+    .btn-green:hover {
+        background-color: white; 
+        color: black; 
+        border: 2px solid #4CAF50;
+    }
+
+    #searchBar {
+        padding: 8px;
+        width: 300px;
+        border-radius: 8px; 
+        border: 2px solid #4CAF50;
+        transition-duration: 0.4s; 
+    }
+
+    #searchBar:focus {
+        border: 2px solid #45a049;
+    }
+
+    #pokemon-data {
+        margin: 20px auto;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+   <header>
+       <h1>Perros y Gatos en Adopción</h1>
+   </header>
+
+   <!-- Barra de búsqueda y botón de buscar -->
+   <div style="text-align: center; margin-bottom: 20px;">
+       <input type="text" id="searchBar" placeholder="Buscar perros y gatos..." style="padding: 8px; width: 300px;">
+       <button id="searchButton" onclick="searchAnimals()">Buscar</button>
+   </div>
+
+   <!-- Botones para exportar datos -->
+   <div style="text-align: center; margin-bottom: 20px;">
+       <button onclick="exportToCSV()" class="btn-green">Exportar a CSV</button>
+       <button onclick="exportToExcel()" class="btn-green">Exportar a Excel</button>
+       <button onclick="exportToPDF()" class="btn-green">Exportar a PDF</button>
+   </div>
+
+   <div class="dog-container">
+       <div class="dog-card">
+           <img src="/perros/7H3JC4BVUVDQNF3P45CHYYSU2A.jpg" alt="Rocky">
+           <h3>Rocky</h3>
+           <p>Mezcla Papillón</p>
+           <p>Edad: 5 años</p>
+           <p>Estado: En adopción</p>
+           <p>Rocky es un Perro cariñoso y leal, perfecto para una familia activa.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/dd731c2d1eb9d89c36f5662dd94dd429.jpg" alt="Dobby">
+           <h3>Dobby</h3>
+           <p>Mezcla Papillón</p>
+           <p>Edad: 7 años</p>
+           <p>Estado: En adopción</p>
+           <p>Dobby es un perro amoroso y leal, perfecto para una familia que le gusta el deporte.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/cute-small-dog-mix-breed-260nw-1503643838.webp" alt="Alf">
+           <h3>Alf (beige claro)</h3>
+           <p>Mezcla Papillón</p>
+           <p>Edad: 3 años</p>
+           <p>Estado: En adopción</p>
+           <p>Alf es un perro juguetón y energético, ideal para hogares con niños.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/pastor.jpg" alt="PRONTO">
+           <h3>PRONTO</h3>
+           <p>Mezcla pastor alemán</p>
+           <p>Edad: 5 años</p>
+           <p>Estado: En adopción</p>
+           <p>Pronto es un perro inteligente y protector, necesita mucho ejercicio y atención.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/perro_akita_negro.jpg" alt="BORNEO">
+           <h3>BORNEO</h3>
+           <p>Mezcla Papillón</p>
+           <p>Edad: 2 años</p>
+           <p>Estado: En adopción</p>
+           <p>Borneo es muy juguetón y dormilón, le encanta comer y es muy cariñoso.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/perro1realweb_large.avif" alt="L">
+           <h3>L</h3>
+           <p>Mezcla nanillón</p>
+           <p>Edad: 1 año</p>
+           <p>Estado: En adopción</p>
+           <p>L es un perro tranquilo y afectuoso, ideal para un ambiente tranquilo y amoroso.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/papillon.webp" alt="BÉLEM">
+           <h3>BÉLEM</h3>
+           <p>Mezcla Papillón</p>
+           <p>Edad: 2 años</p>
+           <p>Estado: En adopción</p>
+           <p>Bélém es una perra cariñosa y leal, perfecta para una familia activa.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/gato_siames_480x480.webp" alt="Mordelon">
+           <h3>Mordelon</h3>
+           <p>Siames</p>
+           <p>Edad: 1 año</p>
+           <p>Estado: En adopción</p>
+           <p>Mordelon es un gatito muy regalon y juguetón.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/gato gordo.jpg" alt="Umbreon">
+           <h3>Umbreon</h3>
+           <p>Maine Coon</p>
+           <p>Edad: 8 Meses</p>
+           <p>Estado: En adopción</p>
+           <p>Son conocidos como los perros del mundo de los gatos grandes. Son unos felinos muy apreciados, porque son familiares y extremadamente inteligentes.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/gato atrigado.jpg" alt="Jolteon">
+           <h3>Jolteon</h3>
+           <p>Savannah</p>
+           <p>Edad: 8 Meses</p>
+           <p>Estado: En adopción</p>
+           <p>Este gato es quizá el más fotogénico de la lista, el Savannah casi parece un cruce entre un leopardo y un tigre.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/gato blanco.jpg" alt="Vaporeon">
+           <h3>Vaporeon</h3>
+           <p>Chinchilla</p>
+           <p>Edad: 10 Meses</p>
+           <p>Estado: En adopción</p>
+           <p>De color blanco-gris, esta raza es bonita, elegante y muy mimoso</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/gato plomo.jpg" alt="Flareon">
+           <h3>Flareon</h3>
+           <p>Azul ruso</p>
+           <p>Edad: 10 Meses</p>
+           <p>Estado: En adopción</p>
+           <p>Uno de los gatos grandes más bonitos por su pelaje gris, ojos verdes y un peso aproximado de 5 kilos.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/gato peludo.jpg" alt="Eevee">
+           <h3>Eevee</h3>
+           <p>Siberiano</p>
+           <p>Edad: 10 Meses</p>
+           <p>Estado: En adopción</p>
+           <p>Los gatos siberianos son muy juguetones, no requieren muchos cuidados, son buenos con los niños y otras mascotas, cariñosos y les encanta el aire libre.</p>
+       </div>
+       <div class="dog-card">
+           <img src="/perros/gato malo.jpg" alt="Sylveon">
+           <h3>Sylveon</h3>
+           <p>Ragamuffin</p>
+           <p>Edad: 12 Meses</p>
+           <p>Estado: En adopción</p>
+           <p>Si los mininos fueran humanos, elegiríamos a los gatos Ragamuffins como las sillas sociales.</p>
+       </div>
+   </div>
+
+   <!-- Botón para volver al índice -->
+   <div style="text-align: center; margin-top: 20px;">
+       <button class="btn-green" onclick="volverAlIndex()">Volver al Índice</button>
+   </div>
+
+   <!-- Sección para buscar Pokémon -->
+   <div style="text-align: center; margin-top: 20px;">
+       <input type="text" id="pokemonSearchBar" placeholder="Buscar Pokémon por nombre o ID" style="padding: 8px; width: 300px;">
+       <button class="btn-green" onclick="searchPokemon()">Buscar Pokémon</button>
+   </div>
+
+   <!-- Sección para mostrar datos del Pokémon -->
+   <div id="pokemon-data">
+       <h3>Información del Pokémon</h3>
+       <div id="pokemon-info"></div>
+   </div>
+
+   <script>
+   function searchAnimals() {
+       var input, filter, cards, cardContainer, h3, title, i;
+       input = document.getElementById("searchBar");
+       filter = input.value.toUpperCase();
+       cardContainer = document.body;
+       cards = cardContainer.getElementsByClassName("dog-card");
+       for (i = 0; i < cards.length; i++) {
+           h3 = cards[i].getElementsByTagName("h3")[0];
+           title = h3.textContent || h3.innerText;
+           if (title.toUpperCase().indexOf(filter) > -1) {
+               cards[i].style.display = "";
+           } else {
+               cards[i].style.display = "none";
+           }
+       }
+   }
+
+   function exportToCSV() {
+       // Implementar funcionalidad para exportar a CSV
+   }
+
+   function exportToExcel() {
+       // Implementar funcionalidad para exportar a Excel
+   }
+
+   function exportToPDF() {
+       // Implementar funcionalidad para exportar a PDF
+   }
+
+   function volverAlIndex() {
+       window.location.href = "index.html"; 
+   }
+
+   function searchPokemon() {
+       const pokemonNameOrId = document.getElementById('pokemonSearchBar').value.toLowerCase();
+       if (pokemonNameOrId) {
+           fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNameOrId}`)
+               .then(response => response.json())
+               .then(data => {
+                   displayPokemonData(data);
+               })
+               .catch(error => {
+                   console.error('Error fetching Pokémon data:', error);
+                   document.getElementById('pokemon-info').innerHTML = '<p>Error al obtener datos del Pokémon. Por favor, verifica el nombre o ID.</p>';
+               });
+       } else {
+           document.getElementById('pokemon-info').innerHTML = '<p>Por favor, ingresa un nombre o ID de Pokémon.</p>';
+       }
+   }
+
+   function displayPokemonData(data) {
+       const pokemonInfoDiv = document.getElementById('pokemon-info');
+       pokemonInfoDiv.innerHTML = `
+           <p><strong>Nombre:</strong> ${data.name}</p>
+           <p><strong>Experiencia base:</strong> ${data.base_experience}</p>
+           <p><strong>Altura:</strong> ${data.height}</p>
+           <p><strong>Peso:</strong> ${data.weight}</p>
+           <img src="${data.sprites.front_default}" alt="${data.name}">
+       `;
+   }
+
+   // Llamar a la función fetchPokemonData al cargar la página
+   document.addEventListener('DOMContentLoaded', () => {
+       fetchPokemonData('ditto');
+   });
+
+   function fetchPokemonData(pokemonNameOrId) {
+       fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNameOrId}`)
+           .then(response => response.json())
+           .then(data => {
+               displayPokemonData(data);
+           })
+           .catch(error => console.error('Error fetching Pokémon data:', error));
+   }
+   </script>
+</body>
+</html>

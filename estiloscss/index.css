@@ -1,0 +1,145 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-image: url("/imagenes/istockphoto-1189999060-612x612.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #555;
+}
+
+.nav-item .nav-link {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-item .nav-link:hover {
+    color: #555;
+}
+
+.nav-item .nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #333;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-item .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Estilos de la sección de inicio */
+#inicio {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente para el contenido */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.imagen-principal, .imagen-equipo {
+    width: 100%;
+    max-width: 200px; /* Ajustamos el tamaño máximo de las imágenes */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.description-container {
+    font-size: 18px;
+}
+
+/* Estilos del contenedor del mapa */
+.map-container {
+    width: 100%;
+    height: 200px; /* Ajustamos la altura del mapa */
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .contact-info {
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+body {
+    background-image: url("/imagenes/istockphoto-1189999060-612x612.jpg"); /* URL de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Para que el fondo no se desplace al hacer scroll */
+}
+
+.imagen-principal,
+.imagen-equipo {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    max-width: 600px; /* Ajusta el tamaño máximo */
+    height: auto; /* Mantiene la proporción de aspecto */
+    margin: 10px auto; /* Margen superior e inferior 10px, y margen lateral automático para centrar */
+    display: block; /* Asegura que las imágenes se muestren como bloques */
+}
+
+#mapa-container {
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden; /* Para ocultar los bordes del mapa que sobresalen */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#mapa {
+    width: 100%;
+    height: 400px; /* Ajusta la altura del mapa según tus preferencias */
+    border: none; /* Elimina el borde del mapa */
+}
